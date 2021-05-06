@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="outerContainer"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="draggableBox"
+        >
+          <h1
+            class="box"
+          >
+            BOX
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
