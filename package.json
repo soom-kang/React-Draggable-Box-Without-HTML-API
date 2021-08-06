@@ -1,5 +1,5 @@
 {
-	"name": "simple-draggable-component",
+	"name": "react-draggable-box-without-html-api",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
