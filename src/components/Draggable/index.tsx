@@ -22,9 +22,15 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 	};
 
 	const dragging = (e: MouseEvent) => {
-		if (isDragging && draggableArea.current && draggingBox.current) {
+		const borderWidth = 6; // check the App.css
+
+		if (!isDragging) return;
+
+		try {
+			if (!draggableArea.current || !draggingBox.current)
+				throw new Error('Impossbile to drag for now!');
+
 			const { offsetLeft, offsetTop, clientWidth, clientHeight } = draggableArea.current;
-			const borderWidth = 6; // check the App.css
 
 			const [boxWidth, boxHeight] = [
 				draggingBox.current.clientWidth,
@@ -39,11 +45,15 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 			let [left, top] = [e.screenX - diff.left, e.screenY - diff.top];
 			let [right, bottom] = [left + boxWidth, top + boxHeight];
 
-			if (offsetLeft < left && offsetTop < top && offsetRight > right && offsetBottom > bottom)
-				setStyles({
-					left,
-					top,
-				});
+			if (offsetLeft > left || offsetTop > top || offsetRight < right || offsetBottom < bottom)
+				throw new Error('Out of the draggable area!');
+
+			setStyles({
+				left,
+				top,
+			});
+		} catch (error) {
+			console.error(error.message);
 		}
 	};
 
@@ -53,15 +63,18 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 
 	return (
 		<div className='outerContainer gradient'>
-			<div ref={draggableArea} className='container shadow'>
+			<div
+				ref={draggableArea}
+				className='container shadow'
+				onMouseMove={dragging}
+				onMouseUp={dragEnd}
+			>
 				<div
 					className='draggableBox neon-border'
 					data-testid='draggableBox'
 					ref={draggingBox}
 					style={styles}
 					onMouseDown={dragStart}
-					onMouseMove={dragging}
-					onMouseUp={dragEnd}
 				>
 					{children}
 				</div>
