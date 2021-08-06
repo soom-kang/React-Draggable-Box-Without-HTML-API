@@ -1,46 +1,64 @@
-# Simple Draggable Component
+<h3 align="center"> 
+  React Draggable Box without HTML Drag & Drop API
+</h3>
 
-> 본 프로젝트는 React, TypeScript 를 통해 제작되었습니다.
+<h4 align="center">
+  <a href="">View Demo</a>
+</h4>
 
 ---
 
-## 프로젝트 소개
+## About The Project
 
-1. 본 프로젝트는 `React`, `TypeScript` 를 통해 구성했습니다.
+1. The parent component `Draggable` and child component `BOX` were designed as `<Draggable> <Box /> </Draggable>`
 
-2. 부모인 `Draggable`과 `BOX` 컴포넌트를 `<Draggable> <Box /> </Draggable>` 과 같이 선언하고, 3rd Party나 라이브러리를 사용하지 않고 구성하였습니다.
+2. Not using `HTML Drag & Drop API`. Configured without using any 3rd parties or libraries
 
-3. `HTML Drag & Drop API` 을 사용하지 않았습니다.
+3. Declare a certain draggable area for the draggable box.
 
-4. 드래그 가능한 일정한 영역을 선언하였습니다.
+### Built With
 
-#### 화면 예시
+- React
 
-![draggable](https://user-images.githubusercontent.com/4216651/117315407-a2042080-aec2-11eb-86fd-3e1f6f7f2f88.gif)
+- TypeScript
 
-## 프로젝트 실행
+## Getting Started
 
-### 설치
+### Prerequisites
 
-1. 폴더 안에서 `npm install` 로 설치합니다.
+Before you start, install `Yarn` package to global.
 
-```console
-$ npm install
+```sh
+npm install --global yarn
 ```
 
-### 실행 (로컬)
+### Installation
 
-1. 폴더 안에서 `npm start` 로 실행합니다.
+1.  Clone the repo
 
-```console
-// 실행
-$ npm start
+    ```sh
+    git clone https://github.com/VannsKang/React-Draggable-Box-Without-HTML-API.git
+    ```
 
-// 테스트
-$ npm run test
-```
+2.  Install NPM packages
 
-## 프로젝트 모듈 구조
+    ```sh
+    yarn install
+    ```
+
+3.  Run the project
+
+    ```sh
+    yarn start
+    ```
+
+4.  Build the package
+
+    ```sh
+    yarn build
+    ```
+
+## Project Tree
 
 ```js
 .
@@ -54,18 +72,20 @@ $ npm run test
 │   │   └── Draggable/
 │   │       ├── index.tsx
 │   │       └── index.test.tsx
-│   ├── App.css
+│   ├── styles/
+│   │   ├── App.css
+│   │   └── index.css
 │   ├── App.test.ts
 │   ├── App.tsx
-│   ├── index.css
-│   └── index.tsx
+│   ├── index.tsx
+│   └── ...
 ├── craco.config.js
 ├── package.json
 ├── tsconfig.json
-└── tsconfig.paths.json
+└── ...
 ```
 
-## 설치 패키지
+## NPM Packages
 
 #### package.json
 
@@ -89,6 +109,16 @@ $ npm run test
 }
 ```
 
-## 기타 참고 사항
+## ETC
 
-> - 본 프로젝트는 크롬에서 테스트를 거쳤습니다.
+This project is obtimized & tested in `Chrome`.
+
+---
+
+<h3 align="center">
+Developed by SOOM
+</h3>
+
+<h4 align="center">
+<a href="https://soomlog.vercel.app/">Soomlog.vercel.app</a>
+</h4>

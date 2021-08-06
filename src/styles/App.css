@@ -1,0 +1,110 @@
+.draggable-title {
+	position: absolute;
+	top: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+}
+
+.draggable-title div {
+	font-size: 4.5rem;
+	line-height: 1.3;
+	white-space: nowrap;
+	font-family: 'Vibur', cursive;
+	text-align: center;
+}
+
+.outerContainer {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 800px;
+	height: 500px;
+	margin: auto;
+	background-color: #333;
+	border-radius: 10px;
+	overflow: hidden;
+	touch-action: none;
+}
+
+.draggableBox {
+	position: absolute;
+	width: 150px;
+	background-color: #333;
+	user-select: none;
+	touch-action: none;
+	padding: 15px 0;
+}
+
+.draggableBox:active {
+	background: rgb(63, 94, 251);
+	background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+}
+
+.draggableBox:hover {
+	cursor: pointer;
+}
+
+.box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	font-weight: 900;
+}
+
+/* neon style */
+
+.shadow {
+	--tw-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+.gradient {
+	background: rgb(63, 94, 251);
+	background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+}
+
+.neon-border {
+	border: 3px solid #fff;
+	border-radius: 0.8rem;
+
+	box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe,
+		0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+}
+
+.neon-title {
+	font-family: 'Vibur', cursive;
+	color: #fff;
+	text-shadow: 0 0 7px rgb(63, 94, 251), 0 0 10px rgb(63, 94, 251), 0 0 21px rgb(63, 94, 251),
+		0 0 42px rgb(63, 94, 251);
+	animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+	0%,
+	18%,
+	22%,
+	25%,
+	53%,
+	57%,
+	100% {
+		text-shadow: 0 0 4px rgb(63, 94, 251), 0 0 11px rgb(63, 94, 251), 0 0 19px rgb(63, 94, 251),
+			0 0 40px rgb(63, 94, 251);
+	}
+
+	20%,
+	24%,
+	55% {
+		text-shadow: none;
+	}
+}

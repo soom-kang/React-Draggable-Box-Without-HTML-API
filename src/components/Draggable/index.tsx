@@ -1,10 +1,4 @@
-import {
-	useState,
-	MutableRefObject,
-	useRef,
-	ReactNode,
-	MouseEvent,
-} from 'react';
+import { useState, MutableRefObject, useRef, ReactNode, MouseEvent } from 'react';
 
 const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 	const draggableArea: MutableRefObject<HTMLDivElement | null> = useRef(null);
@@ -15,12 +9,7 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 	const [isDragging, setIsDragging] = useState(false);
 
 	const dragStart = (e: MouseEvent) => {
-		const {
-			left,
-			right,
-			top,
-			bottom,
-		} = e.currentTarget.getBoundingClientRect();
+		const { left, right, top, bottom } = e.currentTarget.getBoundingClientRect();
 
 		setDiff({
 			left: e.screenX - left,
@@ -34,12 +23,8 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 
 	const dragging = (e: MouseEvent) => {
 		if (isDragging && draggableArea.current && draggingBox.current) {
-			const {
-				offsetLeft,
-				offsetTop,
-				clientWidth,
-				clientHeight,
-			} = draggableArea.current;
+			const { offsetLeft, offsetTop, clientWidth, clientHeight } = draggableArea.current;
+			const borderWidth = 6; // check the App.css
 
 			const [boxWidth, boxHeight] = [
 				draggingBox.current.clientWidth,
@@ -47,19 +32,14 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 			];
 
 			const [offsetRight, offsetBottom] = [
-				offsetLeft + clientWidth,
-				offsetTop + clientHeight,
+				offsetLeft + clientWidth - borderWidth,
+				offsetTop + clientHeight - borderWidth,
 			];
 
 			let [left, top] = [e.screenX - diff.left, e.screenY - diff.top];
 			let [right, bottom] = [left + boxWidth, top + boxHeight];
 
-			if (
-				offsetLeft < left &&
-				offsetTop < top &&
-				offsetRight > right &&
-				offsetBottom > bottom
-			)
+			if (offsetLeft < left && offsetTop < top && offsetRight > right && offsetBottom > bottom)
 				setStyles({
 					left,
 					top,
@@ -72,10 +52,10 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 	};
 
 	return (
-		<div className='outerContainer'>
-			<div ref={draggableArea} className='container'>
+		<div className='outerContainer gradient'>
+			<div ref={draggableArea} className='container shadow'>
 				<div
-					className='draggableBox'
+					className='draggableBox neon-border'
 					data-testid='draggableBox'
 					ref={draggingBox}
 					style={styles}
