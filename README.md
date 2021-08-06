@@ -8,6 +8,8 @@
 
 ---
 
+<img src="https://user-images.githubusercontent.com/4216651/128471613-6b306ec7-3d1e-4c24-a198-e32b9491c70d.gif" alt="draggable-introduction" width="100%"/>
+
 ## About The Project
 
 1. The parent component `Draggable` and child component `BOX` were designed as `<Draggable> <Box /> </Draggable>`
