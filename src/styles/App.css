@@ -1,15 +1,12 @@
 .draggable-title {
 	position: absolute;
-	top: 2rem;
+	top: 4rem;
 	left: 50%;
 	transform: translateX(-50%);
 	z-index: 10;
 }
 
 .draggable-title div {
-	font-size: 4.5rem;
-	line-height: 1.3;
-	white-space: nowrap;
 	font-family: 'Vibur', cursive;
 	text-align: center;
 }
@@ -21,13 +18,13 @@
 	align-items: center;
 	width: 100%;
 	height: 100%;
+	padding-top: 10rem;
 }
 
 .container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 800px;
 	height: 500px;
 	margin: auto;
 	background-color: #333;
@@ -38,11 +35,10 @@
 
 .draggableBox {
 	position: absolute;
-	width: 150px;
 	background-color: #333;
 	user-select: none;
-	touch-action: none;
 	padding: 15px 0;
+	touch-action: none;
 }
 
 .draggableBox:active {
@@ -58,7 +54,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 2rem;
 	font-weight: 900;
 }
 
@@ -106,5 +101,50 @@
 	24%,
 	55% {
 		text-shadow: none;
+	}
+}
+
+/* media query */
+
+/* mobile */
+@media (max-width: 1023px) {
+	.draggable-title div {
+		font-size: 1.5rem;
+		line-height: 1.3;
+	}
+
+	.container {
+		width: 300px;
+	}
+
+	.draggableBox {
+		width: 80px;
+		padding: 10px 0;
+	}
+
+	.box {
+		font-size: 1.2rem;
+	}
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+	.draggable-title div {
+		font-size: 3.5rem;
+		line-height: 1.3;
+		white-space: nowrap;
+	}
+
+	.container {
+		width: 800px;
+	}
+
+	.draggableBox {
+		width: 150px;
+		padding: 15px 0;
+	}
+
+	.box {
+		font-size: 2rem;
 	}
 }
