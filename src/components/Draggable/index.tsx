@@ -1,4 +1,5 @@
-import { useState, MutableRefObject, useRef, ReactNode, MouseEvent } from 'react';
+import { useState, MutableRefObject, useRef, ReactNode, MouseEvent, TouchEvent } from 'react';
+import { BrowserView, MobileView, isBrowser } from 'react-device-detect';
 
 const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 	const draggableArea: MutableRefObject<HTMLDivElement | null> = useRef(null);
@@ -8,12 +9,19 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 	const [diff, setDiff] = useState({ left: 0, top: 0, right: 0, bottom: 0 });
 	const [isDragging, setIsDragging] = useState(false);
 
-	const dragStart = (e: MouseEvent) => {
+	// DragStart
+	const dragStart = (e: TouchEvent | MouseEvent) => {
 		const { left, right, top, bottom } = e.currentTarget.getBoundingClientRect();
+		const [getScreenX, getScreenY] = isBrowser
+			? [(e as MouseEvent).screenX, (e as MouseEvent).screenY]
+			: [
+					Math.floor((e as TouchEvent).touches[0].screenX),
+					Math.floor((e as TouchEvent).touches[0].screenY),
+			  ];
 
 		setDiff({
-			left: e.screenX - left,
-			top: e.screenY - top,
+			left: getScreenX - left,
+			top: getScreenY - top,
 			right: right,
 			bottom: bottom,
 		});
@@ -21,7 +29,7 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 		setIsDragging(true);
 	};
 
-	const dragging = (e: MouseEvent) => {
+	const dragging = (e: MouseEvent | TouchEvent) => {
 		const borderWidth = 6; // check the App.css
 
 		if (!isDragging) return;
@@ -42,7 +50,14 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 				offsetTop + clientHeight - borderWidth,
 			];
 
-			let [left, top] = [e.screenX - diff.left, e.screenY - diff.top];
+			const [getScreenX, getScreenY] = isBrowser
+				? [(e as MouseEvent).screenX, (e as MouseEvent).screenY]
+				: [
+						Math.floor((e as TouchEvent).touches[0].screenX),
+						Math.floor((e as TouchEvent).touches[0].screenY),
+				  ];
+
+			let [left, top] = [getScreenX - diff.left, getScreenY - diff.top];
 			let [right, bottom] = [left + boxWidth, top + boxHeight];
 
 			if (offsetLeft > left || offsetTop > top || offsetRight < right || offsetBottom < bottom)
@@ -63,22 +78,45 @@ const Draggable = <T extends { children: ReactNode }>({ children }: T) => {
 
 	return (
 		<div className='outerContainer gradient'>
-			<div
-				ref={draggableArea}
-				className='container shadow'
-				onMouseMove={dragging}
-				onMouseUp={dragEnd}
-			>
+			{/* NOTE web view*/}
+			<BrowserView>
 				<div
-					className='draggableBox neon-border'
-					data-testid='draggableBox'
-					ref={draggingBox}
-					style={styles}
-					onMouseDown={dragStart}
+					ref={draggableArea}
+					className='container shadow'
+					onMouseMove={dragging}
+					onMouseUp={dragEnd}
 				>
-					{children}
+					<div
+						className='draggableBox neon-border'
+						data-testid='draggableBox'
+						ref={draggingBox}
+						style={styles}
+						onMouseDown={dragStart}
+					>
+						{children}
+					</div>
 				</div>
-			</div>
+			</BrowserView>
+
+			{/* NOTE mobile view */}
+			<MobileView>
+				<div
+					ref={draggableArea}
+					className='container shadow'
+					onTouchMove={dragging}
+					onTouchEnd={dragEnd}
+				>
+					<div
+						className='draggableBox neon-border'
+						data-testid='draggableBox'
+						ref={draggingBox}
+						style={styles}
+						onTouchStart={dragStart}
+					>
+						{children}
+					</div>
+				</div>
+			</MobileView>
 		</div>
 	);
 };
