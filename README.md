@@ -8,7 +8,11 @@
 
 ---
 
-<img src="https://user-images.githubusercontent.com/4216651/128471613-6b306ec7-3d1e-4c24-a198-e32b9491c70d.gif" alt="draggable-introduction" width="100%"/>
+<img src="https://user-images.githubusercontent.com/4216651/129349860-bac674f6-ba10-46d5-ad52-7fe88d7d4cf4.png" alt="draggable-main" width="100%"/>
+
+|                                                                         Web                                                                         |                                                                        mobile                                                                        |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <img src="https://user-images.githubusercontent.com/4216651/128471613-6b306ec7-3d1e-4c24-a198-e32b9491c70d.gif" alt="draggable-web" width="100%" /> | <img src="https://user-images.githubusercontent.com/4216651/129350968-ba99c817-9cda-46ea-b914-78d9ce76a3bf.gif" alt="draggable-mobile" width="55%"/> |
 
 ## About The Project
 
