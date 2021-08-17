@@ -16,6 +16,8 @@
 
 ## About The Project
 
+This project is documentation of a study to develop the Drag & Drop visual interaction without `HTML Drag & Drop API`.
+
 1. The parent component `Draggable` and child component `BOX` were designed as `<Draggable> <Box /> </Draggable>`
 
 2. Not using `HTML Drag & Drop API`. Configured without using any 3rd parties or libraries
@@ -117,7 +119,7 @@ npm install --global yarn
 
 ## ETC
 
-This project is obtimized & tested in `Chrome`.
+This project is optimized & tested in `Chrome`.
 
 ---
 
@@ -126,5 +128,5 @@ Developed by SOOM
 </h3>
 
 <h4 align="center">
-<a href="https://soomlog.vercel.app/">Soomlog.vercel.app</a>
+<a href="https://www.soomlog.tech/">Soomlog.tech</a>
 </h4>
