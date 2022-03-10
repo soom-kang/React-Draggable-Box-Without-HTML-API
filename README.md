@@ -18,29 +18,42 @@
 
 This project is documentation of a study to develop the Drag & Drop visual interaction without `HTML Drag & Drop API`.
 
-1. The parent component `Draggable` and child component `BOX` were designed as `<Draggable> <Box /> </Draggable>`
-
-2. Not using `HTML Drag & Drop API`. Configured without using any 3rd parties or libraries
-
-3. Declare a certain draggable area for the draggable box.
+<p>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=TypeScript&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=Jest&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=Vite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white"/>
+  <img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white"/>
+</p>
 
 ### Built With
 
 - React
-
 - TypeScript
+- vite
+- jest
+- pnpm
+- react-device-detect
 
 ## Getting Started
 
 ### Prerequisites
 
-Before you start, install `Yarn` package to global.
+- Before you start, install `pnpm` package to global
 
-```sh
-npm install --global yarn
-```
+  ```sh
+  npm install --global pnpm
+  ```
+
+- Docker install required
+
+  https://www.docker.com/get-started
 
 ### Installation
+
+#### Local
 
 1.  Clone the repo
 
@@ -51,20 +64,42 @@ npm install --global yarn
 2.  Install NPM packages
 
     ```sh
-    yarn install
+    pnpm install
     ```
 
 3.  Run the project
 
     ```sh
-    yarn start
+    pnpm dev
     ```
 
 4.  Build the package
 
     ```sh
-    yarn build
+    pnpm build
     ```
+
+5.  Test the project
+
+    ```sh
+    pnpm test:unit
+    ```
+
+#### Docker
+
+1.  Run the Docker inside `./docker` folder
+
+    ```sh
+    docker-compose up
+    ```
+
+## Introduction
+
+1. The parent component `Draggable` and child component `BOX` were designed as `<Draggable> <Box /> </Draggable>`
+
+2. Not using `HTML Drag & Drop API`. Configured without using any 3rd parties or libraries
+
+3. Declare a certain draggable area for the draggable box.
 
 ## Project Tree
 
@@ -95,26 +130,21 @@ npm install --global yarn
 
 ## NPM Packages
 
-#### package.json
+#### packages
 
-```json
-"dependencies": {
-  "@testing-library/jest-dom": "^5.11.4",
-  "@testing-library/react": "^11.1.0",
-  "@testing-library/user-event": "^12.1.10",
-  "@types/jest": "^26.0.15",
-  "@types/node": "^12.0.0",
-  "@types/react": "^17.0.0",
-  "@types/react-dom": "^17.0.0",
-  "react": "^17.0.2",
-  "react-dom": "^17.0.2",
-  "react-scripts": "4.0.3",
-  "typescript": "^4.1.2",
-},
-"devDependencies": {
-  "@craco/craco": "^6.1.2",
-  "craco-alias": "^2.2.0",
-}
+```
+dependencies:
+react 17.0.2
+react-device-detect 2.1.2
+react-dom 17.0.2
+
+devDependencies:
+@types/node 17.0.21
+@types/react 17.0.40
+@types/react-dom 17.0.13
+@vitejs/plugin-react 1.2.0
+typescript 4.6.2
+vite 2.8.6
 ```
 
 ## ETC
