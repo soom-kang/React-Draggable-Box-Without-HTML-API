@@ -4,17 +4,17 @@ specifiers:
   '@testing-library/jest-dom': ^5.16.2
   '@testing-library/react': ^12.1.4
   '@testing-library/user-event': ^13.5.0
-  '@types/react': ^17.0.33
-  '@types/react-dom': ^17.0.10
-  '@vitejs/plugin-react': ^1.0.7
+  '@types/react': ^17.0.40
+  '@types/react-dom': ^17.0.13
+  '@vitejs/plugin-react': ^1.2.0
   identity-obj-proxy: ^3.0.0
   jest: ^27.5.1
   jest-environment-jsdom: ^27.5.1
   react: ^17.0.2
   react-device-detect: ^2.1.2
   react-dom: ^17.0.2
-  typescript: ^4.5.4
-  vite: ^2.8.0
+  typescript: ^4.6.2
+  vite: ^2.8.6
   vite-jest: ^0.1.4
 
 dependencies:
@@ -1062,7 +1062,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001314
-      electron-to-chromium: 1.4.80
+      electron-to-chromium: 1.4.81
       escalade: 3.1.1
       node-releases: 2.0.2
       picocolors: 1.0.0
@@ -1299,8 +1299,8 @@ packages:
       webidl-conversions: 5.0.0
     dev: true
 
-  /electron-to-chromium/1.4.80:
-    resolution: {integrity: sha512-COsbJCGVYCc/aAY4cd94x1Js3q0r406YKGbdL8LXHg0O9dEjuFEFU/vZneRxBxKo/f1lLHi0YyAR7sbFM+i8Bg==}
+  /electron-to-chromium/1.4.81:
+    resolution: {integrity: sha512-Gs7xVpIZ7tYYSDA+WgpzwpPvfGwUk3KSIjJ0akuj5XQHFdyQnsUoM76EA4CIHXNLPiVwTwOFay9RMb0ChG3OBw==}
     dev: true
 
   /emittery/0.8.1:
