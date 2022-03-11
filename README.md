@@ -32,8 +32,8 @@ This project is documentation of a study to develop the Drag & Drop visual inter
 
 - React
 - TypeScript
-- vite
 - jest
+- vite
 - pnpm
 - react-device-detect
 
@@ -122,7 +122,6 @@ This project is documentation of a study to develop the Drag & Drop visual inter
 │   ├── App.tsx
 │   ├── index.tsx
 │   └── ...
-├── craco.config.js
 ├── package.json
 ├── tsconfig.json
 └── ...
@@ -139,12 +138,12 @@ react-device-detect 2.1.2
 react-dom 17.0.2
 
 devDependencies:
-@types/node 17.0.21
-@types/react 17.0.40
-@types/react-dom 17.0.13
-@vitejs/plugin-react 1.2.0
-typescript 4.6.2
-vite 2.8.6
+@testing-library/jest-dom 5.16.2    identity-obj-proxy 3.0.0
+@testing-library/react 12.1.4       jest 27.5.1
+@testing-library/user-event 13.5.0  jest-environment-jsdom 27.5.1
+@types/react 17.0.40                typescript 4.6.2
+@types/react-dom 17.0.13            vite 2.8.6
+@vitejs/plugin-react 1.2.0          vite-jest 0.1.4
 ```
 
 ## ETC
